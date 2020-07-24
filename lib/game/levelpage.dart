@@ -3,6 +3,7 @@ import 'package:dollar/game/logic/levels_text.dart';
 import 'package:dollar/game/levelselect.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
 
 import 'logic/star_rating.dart';
 
@@ -39,7 +40,7 @@ class _LevelpageState extends State<Levelpage> {
                   child: Center(child: Text('Комментарий:')),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 30),
+                    margin: EdgeInsets.only(top: 30),
                     height: MediaQuery.of(context).size.height * 0.417,
                     width: MediaQuery.of(context).size.width * 0.68,
                     color: Colors.white,
@@ -106,63 +107,6 @@ class _LevelpageState extends State<Levelpage> {
         ));
   }
 
-  VideoPlayerController _controller;
-  Future<void> _initializeVideoPlayerFuture;
-  String videourl = '';
-  @override
-  void initState() {
-    if (widget._id1 == 1) {
-      videourl =
-          'https://drive.google.com/u/0/uc?id=1TfdN4oGrYygbVzpuPKG-qpInQXDQMafZ&export=download';
-    }
-    if (widget._id1 == 2) {
-      videourl =
-          'https://drive.google.com/u/0/uc?id=1TR_fjKrNz82WU-_GqFjlfy86U5EXyJq2&export=download';
-    }
-    if (widget._id1 == 3) {
-      videourl =
-          'https://drive.google.com/u/0/uc?id=1W3x6XamjwtfZ_0zByplJiOYUKYR_WfSs&export=download';
-    }
-    if (widget._id1 == 4) {
-      videourl =
-          'https://drive.google.com/u/0/uc?id=1Fhh9HL6Jj5YA1GkXM7SL70_ZlYINSwvN&export=download';
-    }
-    if (widget._id1 == 5) {
-      videourl =
-          'https://drive.google.com/u/0/uc?id=1t0zc8K7ktHy8uhv9kT_8rDQ9i3nvHekL&export=download';
-    }
-    if (widget._id1 == 6) {
-      videourl =
-          'https://drive.google.com/u/0/uc?id=1clBQ1unm34JWgjh_o134XsWWbffenzng&export=download';
-    }
-    if (widget._id1 == 7) {
-      videourl =
-          'ыфвывфыфв';
-    }
-    if (widget._id1 == 8) {
-      videourl = 'asdsdaassad';
-    }
-    if (widget._id1 == 9) {
-      videourl = 'asdsdaassad';
-    }
-    if (widget._id1 == 10) {
-      videourl = 'asdsdaassad';
-    }
-    if (widget._id1 == 11) {
-      videourl = 'asdsdaassad';
-    }
-    if (widget._id1 == 12) {
-      videourl = 'asdsdaassad';
-    }
-    _controller = VideoPlayerController.network('$videourl');
-
-    _initializeVideoPlayerFuture = _controller.initialize();
-
-    _controller.setLooping(true);
-
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -177,18 +121,6 @@ class _LevelpageState extends State<Levelpage> {
           ],
         ),
         Scaffold(
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              setState(() {
-                _controller.value.isPlaying
-                    ? _controller.pause()
-                    : _controller.play();
-              });
-            },
-            child: Icon(
-              _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-            ),
-          ),
           extendBodyBehindAppBar: true,
           backgroundColor: Colors.transparent,
           body: Column(children: <Widget>[
@@ -208,24 +140,7 @@ class _LevelpageState extends State<Levelpage> {
                     top: MediaQuery.of(context).size.height * 0.03),
                 height: MediaQuery.of(context).size.height * 0.225,
                 width: MediaQuery.of(context).size.width * 0.80,
-                child: FutureBuilder(
-                  future: _initializeVideoPlayerFuture,
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done) {
-                      // If the VideoPlayerController has finished initialization, use
-                      // the data it provides to limit the aspect ratio of the video.
-                      return AspectRatio(
-                        aspectRatio: _controller.value.aspectRatio,
-                        // Use the VideoPlayer widget to display the video.
-                        child: VideoPlayer(_controller),
-                      );
-                    } else {
-                      // If the VideoPlayerController is still initializing, show a
-                      // loading spinner.
-                      return Center(child: CircularProgressIndicator());
-                    }
-                  },
-                )),
+                child: ChewieDemo(widget._id1)),
             Container(
                 margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.038),
@@ -252,10 +167,104 @@ class _LevelpageState extends State<Levelpage> {
       ]),
     );
   }
+}
+
+class ChewieDemo extends StatefulWidget {
+  ChewieDemo(this._id2);
+  final int _id2;
+  @override
+  State<StatefulWidget> createState() {
+    return _ChewieDemoState();
+  }
+}
+
+class _ChewieDemoState extends State<ChewieDemo> {
+  String videourl = '';
+  VideoPlayerController _videoPlayerController1;
+  ChewieController _chewieController;
+
+  @override
+  void initState() {
+    if (widget._id2 == 1) {
+      videourl =
+          'https://drive.google.com/u/0/uc?id=1PYl72pC6uohNWVmOk4aj_0F3PdCSs-Y2&export=download';
+    }
+    if (widget._id2 == 2) {
+      videourl =
+          'https://drive.google.com/u/0/uc?id=1TR_fjKrNz82WU-_GqFjlfy86U5EXyJq2&export=download';
+    }
+    if (widget._id2 == 3) {
+      videourl =
+          'https://drive.google.com/u/0/uc?id=1W3x6XamjwtfZ_0zByplJiOYUKYR_WfSs&export=download';
+    }
+    if (widget._id2 == 4) {
+      videourl =
+          'https://drive.google.com/u/0/uc?id=1Fhh9HL6Jj5YA1GkXM7SL70_ZlYINSwvN&export=download';
+    }
+    if (widget._id2 == 5) {
+      videourl =
+          'https://drive.google.com/u/0/uc?id=1t0zc8K7ktHy8uhv9kT_8rDQ9i3nvHekL&export=download';
+    }
+    if (widget._id2 == 6) {
+      videourl =
+          'https://drive.google.com/u/0/uc?id=1clBQ1unm34JWgjh_o134XsWWbffenzng&export=download';
+    }
+    if (widget._id2 == 7) {
+      videourl = 'ыфвывфыфв';
+    }
+    if (widget._id2 == 8) {
+      videourl = 'asdsdaassad';
+    }
+    if (widget._id2 == 9) {
+      videourl = 'asdsdaassad';
+    }
+    if (widget._id2 == 10) {
+      videourl = 'asdsdaassad';
+    }
+    if (widget._id2 == 11) {
+      videourl = 'asdsdaassad';
+    }
+    if (widget._id2 == 12) {
+      videourl = 'asdsdaassad';
+    }
+    super.initState();
+    _videoPlayerController1 = VideoPlayerController.network('$videourl');
+    _chewieController = ChewieController(
+      videoPlayerController: _videoPlayerController1,
+      aspectRatio: 16 / 9,
+      autoPlay: true,
+      looping: true,
+      // Try playing around with some of these other options:
+
+      // showControls: false,
+      // materialProgressColors: ChewieProgressColors(
+      //   playedColor: Colors.red,
+      //   handleColor: Colors.blue,
+      //   backgroundColor: Colors.grey,
+      //   bufferedColor: Colors.lightGreen,
+      // ),
+      // placeholder: Container(
+      //   color: Colors.grey,
+      // ),
+      // autoInitialize: true,
+    );
+  }
 
   @override
   void dispose() {
+    _videoPlayerController1.dispose();
+    _chewieController.dispose();
     super.dispose();
-    _controller.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Center(
+        child: Chewie(
+          controller: _chewieController,
+        ),
+      ),
+    );
   }
 }

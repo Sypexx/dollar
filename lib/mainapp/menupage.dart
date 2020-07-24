@@ -1,6 +1,7 @@
 import 'package:dollar/game/newgame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:dollar/icons/dollar_icons.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,24 +15,44 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
           child: ListView(
         children: <Widget>[
-          DrawerHeader(child: SvgPicture.asset('assets/2.svg')),
+          DrawerHeader(child: SvgPicture.asset('assets/6.svg')),
           ListTile(
+            leading: Icon(
+              Dollar.profile,
+              color: Color.fromRGBO(59, 84, 169, 1),
+            ),
             title: Text('Профиль'),
             onTap: () {},
           ),
           ListTile(
+            leading: Icon(
+              Dollar.premium,
+              color: Color.fromRGBO(255, 194, 116, 1),
+            ),
             title: Text('Премиум аккаунт'),
             onTap: () {},
           ),
           ListTile(
+            leading: Icon(
+              Dollar.faq,
+              color: Color.fromRGBO(59, 84, 169, 1),
+            ),
             title: Text('FAQ'),
             onTap: () {},
           ),
           ListTile(
+            leading: Icon(
+              Dollar.about,
+              color: Color.fromRGBO(59, 84, 169, 1),
+            ),
             title: Text('О нас'),
             onTap: () {},
           ),
           ListTile(
+            leading: Icon(
+              Dollar.logout,
+              color: Color.fromRGBO(59, 84, 169, 1),
+            ),
             title: Text('Выйти'),
             onTap: () {},
           ),
