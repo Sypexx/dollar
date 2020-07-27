@@ -1,4 +1,5 @@
 import 'package:dollar/game/newgame.dart';
+import 'package:dollar/mainapp/drawer/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:dollar/icons/dollar_icons.dart';
@@ -22,7 +23,10 @@ class _HomePageState extends State<HomePage> {
               color: Color.fromRGBO(59, 84, 169, 1),
             ),
             title: Text('Профиль'),
-            onTap: () {},
+            onTap: () {
+              //Navigator.push(context,
+              // MaterialPageRoute(builder: (context) => FAQPage()));
+            },
           ),
           ListTile(
             leading: Icon(
@@ -38,7 +42,10 @@ class _HomePageState extends State<HomePage> {
               color: Color.fromRGBO(59, 84, 169, 1),
             ),
             title: Text('FAQ'),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => FAQPage()));
+            },
           ),
           ListTile(
             leading: Icon(

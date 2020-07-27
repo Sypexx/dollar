@@ -191,42 +191,9 @@ class _ChewieDemoState extends State<ChewieDemo> {
     }
     if (widget._id2 == 2) {
       videourl =
-          'https://drive.google.com/u/0/uc?id=1TR_fjKrNz82WU-_GqFjlfy86U5EXyJq2&export=download';
+          'https://drive.google.com/u/0/uc?id=1PYAXss5mi8rZi50UjNJ-Jw4yKk1dr1Xv&export=download';
     }
-    if (widget._id2 == 3) {
-      videourl =
-          'https://drive.google.com/u/0/uc?id=1W3x6XamjwtfZ_0zByplJiOYUKYR_WfSs&export=download';
-    }
-    if (widget._id2 == 4) {
-      videourl =
-          'https://drive.google.com/u/0/uc?id=1Fhh9HL6Jj5YA1GkXM7SL70_ZlYINSwvN&export=download';
-    }
-    if (widget._id2 == 5) {
-      videourl =
-          'https://drive.google.com/u/0/uc?id=1t0zc8K7ktHy8uhv9kT_8rDQ9i3nvHekL&export=download';
-    }
-    if (widget._id2 == 6) {
-      videourl =
-          'https://drive.google.com/u/0/uc?id=1clBQ1unm34JWgjh_o134XsWWbffenzng&export=download';
-    }
-    if (widget._id2 == 7) {
-      videourl = 'ыфвывфыфв';
-    }
-    if (widget._id2 == 8) {
-      videourl = 'asdsdaassad';
-    }
-    if (widget._id2 == 9) {
-      videourl = 'asdsdaassad';
-    }
-    if (widget._id2 == 10) {
-      videourl = 'asdsdaassad';
-    }
-    if (widget._id2 == 11) {
-      videourl = 'asdsdaassad';
-    }
-    if (widget._id2 == 12) {
-      videourl = 'asdsdaassad';
-    }
+
     super.initState();
     _videoPlayerController1 = VideoPlayerController.network('$videourl');
     _chewieController = ChewieController(

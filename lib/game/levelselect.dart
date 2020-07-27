@@ -29,8 +29,8 @@ class _LevelSelectState extends State<LevelSelect> {
               children: <Widget>[
                 Levelcard(1, widget.checklvl),
                 Levelcard(2, widget.checklvl),
-                Levelcard(3, widget.checklvl),
-                Levelcard(4, widget.checklvl),
+                //Levelcard(3, widget.checklvl),
+                //Levelcard(4, widget.checklvl),
                 // Levelcard(5, widget.checklvl),
                 // Levelcard(6, widget.checklvl),
                 // Levelcard(7, widget.checklvl),
